@@ -34,7 +34,7 @@ public class MuffinController {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/muffin",method = RequestMethod.PUT)
+    @RequestMapping(value = "/muffin{id}",method = RequestMethod.PUT)
     public ResponseEntity<Muffin> update(Long id, Muffin baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }

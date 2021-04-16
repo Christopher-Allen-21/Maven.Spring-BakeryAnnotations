@@ -17,27 +17,32 @@ public class BakerController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/baker",method = RequestMethod.GET)
+    //@RequestMapping(value = "/baker",method = RequestMethod.GET)
+    @GetMapping("/baker")
     public ResponseEntity<Iterable<Baker>> index() {
         return new ResponseEntity<>(service.index(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/baker{id}",method = RequestMethod.GET)
+    //@RequestMapping(value = "/baker{id}",method = RequestMethod.GET)
+    @GetMapping("/baker{id}")
     public ResponseEntity<Baker> show(@PathVariable Long id) {
         return new ResponseEntity<>(service.show(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/baker",method = RequestMethod.POST)
+    //@RequestMapping(value = "/baker",method = RequestMethod.POST)
+    @PostMapping("/baker")
     public ResponseEntity<Baker> create(@RequestBody Baker baker) {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/baker",method = RequestMethod.PUT)
+    //@RequestMapping(value = "/baker{id}",method = RequestMethod.PUT)
+    @PutMapping("/baker{id}")
     public ResponseEntity<Baker> update(Long id, Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/baker",method = RequestMethod.DELETE)
+    //@RequestMapping(value = "/baker{id}",method = RequestMethod.DELETE)
+    @DeleteMapping("/baker{id}")
     public ResponseEntity<Boolean> destroy(Long id) {
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
     }
